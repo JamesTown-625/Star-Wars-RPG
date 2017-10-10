@@ -1,0 +1,9 @@
+body {
+	background-image: url("../Images/x-wing.jpg");
+	z-index: 0;
+}
+
+h1 {
+	color: white;
+	z-index: 1;
+}
