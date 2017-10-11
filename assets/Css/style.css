@@ -1,9 +1,29 @@
 body {
 	background-image: url("../Images/x-wing.jpg");
 	z-index: 0;
+	background-size: 1600px 900px;
 }
 
+@font-face {
+  font-family: "star-wars-font";
+    src: url("../font/star-wars-font.woff") format("woff");
+ 	}
+
+
 h1 {
-	color: white;
-	z-index: 1;
+	font-family: "star-wars-font";
+	src: url("../font/star-wars-font.woff") format("woff");
+}
+
+
+
+img {
+	height: 175px;
+	width: 150px;
+}
+
+.jumbotron {
+	background-color: #665b35;
+	color: #fbf5b3; 
+
 }
