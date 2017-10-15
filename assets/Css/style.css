@@ -1,29 +1,43 @@
 body {
-	background-image: url("../Images/x-wing.jpg");
-	z-index: 0;
-	background-size: 1600px 900px;
+	background-image: url(../Images/temple.jpg);
+	background-repeat: no-repeat;
+	background-position: center;
+	background-attachment: fixed;
+	background-size: 100%;
+	color: gold;
+
 }
-
-@font-face {
-  font-family: "star-wars-font";
-    src: url("../font/star-wars-font.woff") format("woff");
- 	}
-
-
-h1 {
-	font-family: "star-wars-font";
-	src: url("../font/star-wars-font.woff") format("woff");
-}
-
-
 
 img {
-	height: 175px;
-	width: 150px;
+	height: 190px;
+	width: 200px;
+	border-radius: 10px;
 }
 
-.jumbotron {
-	background-color: #665b35;
-	color: #fbf5b3; 
-
+.section-title {
+	font-size: 200%;
 }
+
+.main-game-title {
+	font-size: 300%;
+	text-align: center;
+	color: gold;
+}
+
+.character {
+	display: inline-block;
+	border-style: solid;
+	border-color: gold;
+	border-width: 4px;
+	cursor: pointer;
+	background-color: white;
+}
+.character-image {
+	padding-right: 16px;
+	padding-left: 16;
+	margin-top: 3px;
+	margin-bottom: 3px;
+}
+
+.character-name { text-align: center; }
+.character-health { text-align: center; }

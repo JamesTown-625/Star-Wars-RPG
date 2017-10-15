@@ -1,78 +1,53 @@
-<!DOCTYPE html>
+<!DOCTYPE>
 <html>
 <head>
-		<title>Star Wars game jQuery!</title>
-		<!-- ==================== Bootstrap CDN ========================================== -->
-		<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-		<link rel="stylesheet" type="text/css" href="assets/Css/reset.css">
-		<link rel="stylesheet" type="text/css" href="assets/Css/style.css">
-		<!-- ==================== Font AWESOME ================================== -->
-		<script src="assets/font/star-wars-font.woff"></script>
+	<title>basic jQuery game</title>
+
+	<!-- CSS link ======================================  -->
+	<link rel="stylesheet" type="text/css" href="assets/Css/style.css">
+
+	<!-- jQuery fOOOOOOOOOOOOOOOOL ================================= -->
+	<script src="https://code.jquery.com/jquery-3.2.1.js"></script>
+	<!-- GAME LOGIC ======================================= -->
+	<script type="text/javascript" src="assets/javascript/rpgStarWars.js"></script>
 
 
 </head>
-
 <body>
 
-<div class="container">
-	<div class="jumbotron">
-<h1><center>Star Wars</center></h1>
+	<div class="main-game-title">Star Wars RPG!</div>
+	<div id="main-game-section">
+		<!-- Where the characters are intitally available to be selected. -->
+	<div id="characters-section">
+		<div class="section-title">Select Your Character</div>
 	</div>
 
-<div class="row">
-	<div class="col-md-6">
-		<div class="panel panel-default">
-			<div class="panel-heading">The Dark Side</div>
-				<div class="panel panel-body">
-					<div class="col-md-4">
-					<img src="assets/Images/boba-fett2.jpg" class="bobaFett">
-					<span class="label label-danger">Boba Fett</span>
-					</div>
-					<div class="col-md-4">
-					<img src="assets/Images/kylo-ren.jpg" class="kyloRen">
-					<span class="label label-danger">Kylo Ren</span>
-					</div>
-					<div class="col-md-4">
-					<img src="assets/Images/darth-vader.jpg" class="darthVader">
-					<span class="label label-danger">Darth Vader</span>
-					</div>
-				</div>
-			</div>
+	<!-- Section for our selected character -->
+	<div id="selected-character-section">
+		<div class="section-title">Your character</div>
+		<!-- Where our selected character will appear. -->
+		<div id="selected-character">
 	</div>
 
-	<div class="col-md-6">
-		<div class="panel panel-default">
-			<div class="panel-heading">The Light Side</div>
-				<div class="panel panel-body">
-					<div class="col-md-4">
-					<img src="assets/Images/jedi.jpg" class="jediKnight">
-					<span class="label label-primary">Qui-Gon Jin</span>
-					</div>
-					<div class="col-md-4">
-					<img src="assets/Images/luke-skywalker.jpg" class="lukeSkywalker">
-					<span class="label label-primary">Luke Skywalker</span>
-					</div>
-					<div class="col-md-4">
-					<img src="assets/Images/han-solo.jpg" class="hanSolo">
-					<span class="label label-primary">Han Solo</span>
-					</div>
-				</div>
-			</div>
+	<div id="available-to-attack-section">
+		<div class="section-title">Enemies Available To Attack</div>
+	</div>
+
+	<div class="section-title">Fight Section</div>
+	<div id="fight-section">
+		<button id="attack-button">Attack</button>
+	</div>
+
+	<div id="action">
+		<div class="character-section">	
+			<div class="section-title">Defender</div>
+			<!-- Where our defender will appear -->
+			<div id="defender"></div>
 		</div>
-
-
+	</div>
 </div>
 
+<div id="game-message"></div>
 
-
-
-
-
-
-
-
-</div> <!--container-->
 </body>
-
-
 </html>
