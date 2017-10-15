@@ -8,7 +8,7 @@ $(document).ready(function() {
 				name: "Boba Fett",
 				health: 100,
 				attack: 8,
-				imageUrl: "assets/Images/boba-fett.jpg",
+				imageUrl: "/assets/Images/boba-fett.jpg",
 				enemyAttackBack: 5
 			},
 
@@ -16,7 +16,7 @@ $(document).ready(function() {
 				name: "Kylo Ren",
 				health: 100,
 				attack: 10,
-				imageUrl: "assets/Images/kylo-ren.jpg",
+				imageUrl: "/assets/Images/kylo-ren.jpg",
 				enemyAttackBack: 5,
 			},
 
@@ -24,7 +24,7 @@ $(document).ready(function() {
 				name: "Darth Vader",
 				health: 120,
 				attack: 15,
-				imageUrl: "assets/Images/darth-vader.jpg",
+				imageUrl: "/assets/Images/darth-vader.jpg",
 				enemyAttackBack: 10,
 			}, 
 
@@ -32,7 +32,7 @@ $(document).ready(function() {
 				name: "Qui-Gon Jin",
 				health: 100,
 				attack: 12,
-				imageUrl: "assets/Images/jedi.jpg",
+				imageUrl: "/assets/Images/jedi.jpg",
 				enemyAttackBack: 8,
 			},
 
@@ -40,7 +40,7 @@ $(document).ready(function() {
 				name: "Luke Skywalker",
 				health: 120,
 				attack: 15,
-				imageUrl: "assets/Images/luke-skywalker.jpg",
+				imageUrl: "/assets/Images/luke-skywalker.jpg",
 				enemyAttackBack: 10,
 			},
 
@@ -48,7 +48,7 @@ $(document).ready(function() {
 				name: "Han Solo",
 				health: 100,
 				attack: 12,
-				imageUrl: "assets/Images/han-solo.jpg",
+				imageUrl: "/assets/Images/han-solo.jpg",
 				enemyAttackBack: 5,	
 			},
 		};
