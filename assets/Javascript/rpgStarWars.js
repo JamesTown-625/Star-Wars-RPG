@@ -141,8 +141,9 @@ var renderMessage = function(message) {
 				//If there is no defender, the clicked enemy will become the new defender
 					if ($("#defender").children().length === 0) {
 						renderCharacters(name, "#defender");
+						console.log(this," This is what we're looking at");
 						$(this).hide();
-						renderMessage("clearMessage");
+						// renderMessage("clearMessage");
 					}
 				});
 			}
@@ -227,7 +228,7 @@ var renderMessage = function(message) {
 		//Creates message for out attack and our opponets counter attack.
 		var attackMessage = "You attacked " + currDefender.name + " for " + (currSelectedCharacter.attack * turnCounter) + " damage.";
 		var counterAttackMessage = currDefender.name + " attacked you back for " + currDefender.enemyAttackBack + " damage.";
-		renderMessage("clearMessage");
+		// renderMessage("clearMessage");
 
 		if ($("#defender").children().length !== 0) {
 			// Reduce defender's health by your attack value.
@@ -237,13 +238,15 @@ var renderMessage = function(message) {
 			if (currDefender.health > 0) {
 			//Render the enemy's updated character card.
 				renderCharacters(currDefender, "playerDamage");	
-
+console.log(currDefender.health);
+console.log(counterAttackMessage);
 			//Render the combats messages
 				renderMessage(attackMessage);
 				renderMessage(counterAttackMessage);
 
 			//Reduce your health by the opponent's attack value.
-				currSelectedCharacter.health -= currDefender.enemyAttackBack;	
+				currSelectedCharacter.health -= currDefender.enemyAttackBack;
+console.log(currSelectedCharacter.health);	
 			//Render the player's updated character card.
 				renderCharacters(currSelectedCharacter, "enemyDamage");		
 
