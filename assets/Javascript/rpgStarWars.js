@@ -95,7 +95,7 @@ var renderMessage = function(message) {
 
 	//Builds the message and appends it to the page.
 	var gameMessageSet = $("#game-message");
-	var newMessage = $("div").text(message);
+	var newMessage = $("<div>").text(message);
 	gameMessageSet.append(newMessage);
 
 	//If we get this specific message passed in, clear the message
@@ -108,6 +108,7 @@ var renderMessage = function(message) {
 
 // This Function handles the rendering of the characters base on which area they are to be rendered in
 		var renderCharacters = function(charObj, areaRender) {
+			///
 
 			//"characters-section" is the div where all of our characters
 			//If true, render all characters to the starting area.
@@ -159,6 +160,7 @@ var renderMessage = function(message) {
 			}
 		//Re-render defender when attacked.
 			if (areaRender === "playerDamage") {
+				console.log("runiing player damage")
 				$("#defender").empty();
 				renderOne(charObj, "#defender", "defender");
 			}
@@ -228,8 +230,9 @@ var renderMessage = function(message) {
 		//Creates message for out attack and our opponets counter attack.
 		var attackMessage = "You attacked " + currDefender.name + " for " + (currSelectedCharacter.attack * turnCounter) + " damage.";
 		var counterAttackMessage = currDefender.name + " attacked you back for " + currDefender.enemyAttackBack + " damage.";
-		// renderMessage("clearMessage");
+		renderMessage("clearMessage");
 
+		///////////////////////////
 		if ($("#defender").children().length !== 0) {
 			// Reduce defender's health by your attack value.
 			currDefender.health -= (currSelectedCharacter.attack * turnCounter);
@@ -238,21 +241,23 @@ var renderMessage = function(message) {
 			if (currDefender.health > 0) {
 			//Render the enemy's updated character card.
 				renderCharacters(currDefender, "playerDamage");	
-console.log(currDefender.health);
-console.log(counterAttackMessage);
+				console.log(currDefender.health);
+				console.log(counterAttackMessage);
 			//Render the combats messages
 				renderMessage(attackMessage);
 				renderMessage(counterAttackMessage);
 
 			//Reduce your health by the opponent's attack value.
 				currSelectedCharacter.health -= currDefender.enemyAttackBack;
-console.log(currSelectedCharacter.health);	
+				console.log(currSelectedCharacter.health);	
 			//Render the player's updated character card.
 				renderCharacters(currSelectedCharacter, "enemyDamage");		
+				console.log("after rneder char on line 254")
 
 			//If you have less than zero health the game ends.
 			// We call the restartGame function to allow the user to start over. 
 			if (currSelectedCharacter.health <= 0) {
+				console.log("on line 260 on if");
 				renderMessage("clearMessage");
 				restartGame("You have been defeated... GAME OVER!!!!");
 				$("#attack-button").unbind("click");
@@ -260,18 +265,22 @@ console.log(currSelectedCharacter.health);
 			}
 
 			else {
+						console.log("on line 268 on else");
 			//Remove your opponents character card.
 			renderCharacters(currDefender, "enemyDefeated");
+			//
 			//Increment your kill count.
 			killCount++;
 			//If you have killed all of your opponents you win.
-			if (killCount>=3) {
+			if (killCount >= 5) {
+						console.log("on line 276 on if");
 				renderMessage("clearMessage");
 				restartGame("You Won!!!! GAME OVER!!!");
 
 			}
 		}
 	}
+	////////////////////////
 		turnCounter++;
 
 	});
