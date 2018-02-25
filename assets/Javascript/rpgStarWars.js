@@ -7,47 +7,47 @@ $(document).ready(function() {
 			"Boba Fett": {
 				name: "Boba Fett",
 				health: 100,
-				attack: 8,
+				attack: 12,
 				imageUrl: "assets/Images/boba-fett.jpg",
-				enemyAttackBack: 5
+				enemyAttackBack: 7
 			},
 
 			"Kylo Ren": {
 				name: "Kylo Ren",
 				health: 100,
-				attack: 10,
+				attack: 16,
 				imageUrl: "assets/Images/kylo-ren.jpg",
-				enemyAttackBack: 5,
+				enemyAttackBack: 13,
 			},
 
 			"Darth Vader": {
 				name: "Darth Vader",
 				health: 120,
-				attack: 15,
+				attack: 30,
 				imageUrl: "assets/Images/darth-vader.jpg",
-				enemyAttackBack: 10,
+				enemyAttackBack: 35,
 			}, 
 
 			"Qui-Gon Jin": {
 				name: "Qui-Gon Jin",
 				health: 100,
-				attack: 12,
+				attack: 18,
 				imageUrl: "assets/Images/jedi.jpg",
-				enemyAttackBack: 8,
+				enemyAttackBack: 24,
 			},
 
 			"Luke Skywalker": {
 				name: "Luke Skywalker",
 				health: 120,
-				attack: 15,
-				imageUrl: "assets/Images/luke-skywalker.jpg",
-				enemyAttackBack: 10,
+				attack: 45,
+				imageUrl: "assets/Images/luke.jpg",
+				enemyAttackBack: 35,
 			},
 
 			"Han Solo": {
 				name: "Han Solo",
 				health: 100,
-				attack: 12,
+				attack: 17,
 				imageUrl: "assets/Images/han-solo.jpg",
 				enemyAttackBack: 5,	
 			},
@@ -182,7 +182,7 @@ var renderMessage = function(message) {
 	var restartGame = function(inputEndGame) {
 
 		//When the 'Restart' button is clicked, reload the page.
-		var restart = $("<button>Restart</button>").click(function() {
+		var restart = $("<button class='btn-success btn-xlarge' style='margin-left: 100px; margin-top: 40px;'>RESTART</button>").click(function() {
 			location.reload();
 		});
 
@@ -190,8 +190,8 @@ var renderMessage = function(message) {
 		var gameState = $("<div>").text(inputEndGame);
 
 		//Render the restart button and victory/defeat message to the page. 
-		$("body").append(gameState);
-		$("body").append(restart);
+		$("#game-message").append(gameState);
+		$("#restart-button").append(restart);
 	}
 
 // =====================================================================================================================================
@@ -202,7 +202,6 @@ var renderMessage = function(message) {
 	$(document).on("click", ".character", function() {
 		//saving the clicked character's name.
 		var name = $(this).attr("data-name");
-		console.log(name);
 		
 // If a player character has not yet been chosen...
 		if (!currSelectedCharacter) {
@@ -214,14 +213,12 @@ var renderMessage = function(message) {
 					combatants.push(characters[key]);
 				}
 			}
-			console.log(combatants);
 			//Hide the character select div.
 			$("#characters-section").hide();
 		//Then render our selected character and our combatants.
 			renderCharacters(currSelectedCharacter, "#selected-character");
 			renderCharacters(combatants, "#available-to-attack-section");
 		}
-
 	});
 
 	// When you click the attack button, run the following game logic...
@@ -229,7 +226,7 @@ var renderMessage = function(message) {
 
 		//Creates message for out attack and our opponets counter attack.
 		var attackMessage = "You attacked " + currDefender.name + " for " + (currSelectedCharacter.attack * turnCounter) + " damage.";
-		var counterAttackMessage = currDefender.name + " attacked you back for " + currDefender.enemyAttackBack + " damage.";
+		var counterAttackMessage = currDefender.name + " hit you back for " + currDefender.enemyAttackBack + " damage.";
 		renderMessage("clearMessage");
 
 		///////////////////////////
@@ -252,37 +249,29 @@ var renderMessage = function(message) {
 				console.log(currSelectedCharacter.health);	
 			//Render the player's updated character card.
 				renderCharacters(currSelectedCharacter, "enemyDamage");		
-				console.log("after rneder char on line 254")
 
 			//If you have less than zero health the game ends.
 			// We call the restartGame function to allow the user to start over. 
 			if (currSelectedCharacter.health <= 0) {
-				console.log("on line 260 on if");
 				renderMessage("clearMessage");
-				restartGame("You have been defeated... GAME OVER!!!!");
+				restartGame("You have been defeated... you need to choose your character more wisely next time! Click restart to try again.");
 				$("#attack-button").unbind("click");
-			}
+				}
 			}
 
 			else {
-						console.log("on line 268 on else");
 			//Remove your opponents character card.
 			renderCharacters(currDefender, "enemyDefeated");
-			//
 			//Increment your kill count.
 			killCount++;
 			//If you have killed all of your opponents you win.
 			if (killCount >= 5) {
-						console.log("on line 276 on if");
 				renderMessage("clearMessage");
-				restartGame("You Won!!!! GAME OVER!!!");
-
+				restartGame("Congratulations! You Won! Hit restart to choose another character to battle with.");
 			}
 		}
 	}
 	////////////////////////
 		turnCounter++;
-
 	});
-
 });

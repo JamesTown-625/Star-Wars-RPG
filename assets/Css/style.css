@@ -1,24 +1,47 @@
 body {
-	background-image: url(../Images/temple.jpg);
+	background-image: url(../Images/x-wing.jpg);
 	background-repeat: no-repeat;
 	background-position: center;
 	background-attachment: fixed;
 	background-size: 100%;
 	color: gold;
-
+	font-family: "STARWARS"
 }
 
-img {
-	height: 190px;
-	width: 200px;
-	border-radius: 10px;
+/* @font-face kit by Fonts2u (http://www.fonts2u.com) */ 
+@font-face {font-family:"STARWARS";src:url("STARWARS.eot?") format("eot"),
+url("../font/starwars/STARWARS.woff") format("woff"),
+url("../font/starwars/STARWARS.ttf") format("truetype"),
+url("../font/starwars/STARWARS.svg#STARWARS") format("svg");font-weight:normal;font-style:normal;}
+
+h1 {
+	font-size: 360px;
 }
 
-.section-title {
-	font-size: 200%;
+h2 {
+	font-size: 24px;
 }
 
-.main-game-title {
+#game-instruction {
+	margin-top: 100px;
+	margin-bottom: 100px;
+}
+
+.btn-xlarge {
+	margin-left: 100px;
+    padding: 18px 28px;
+    font-size: 22px; //change this to your desired size
+    line-height: normal;
+    -webkit-border-radius: 8px;
+       -moz-border-radius: 8px;
+            border-radius: 8px;
+}
+
+#main-game-title {
+	font-size: 1002%;
+}
+
+#main-game-section {
 	font-size: 300%;
 	text-align: center;
 	color: gold;
@@ -26,18 +49,52 @@ img {
 
 .character {
 	display: inline-block;
-	border-style: solid;
-	border-color: gold;
-	border-width: 4px;
 	cursor: pointer;
-	background-color: white;
+	margin-left: 40px;
+	margin-bottom: 40px;
 }
+
 .character-image {
-	padding-right: 16px;
-	padding-left: 16;
 	margin-top: 3px;
 	margin-bottom: 3px;
 }
 
-.character-name { text-align: center; }
-.character-health { text-align: center; }
+.character-name { 
+	text-align: center;
+	font-size: 24px; 
+}
+
+.character-health { 
+	text-align: center; 
+	font-size: 24px;
+}
+
+img {
+	height: 250px;
+	width: 225px;
+	cursor: pointer;
+	border-radius: 10px;
+}
+
+.jumbotron {
+	background-color: transparent;
+	color: #ffe919; 
+}
+
+
+
+.panel {
+	background-color: transparent;
+	color:#ffe919;
+	border-color: transparent;
+}
+.panel-default>.panel-heading {
+	background-color: transparent;
+	color: #ffe919;
+	font-size: 28px;
+	border-color: transparent;
+}
+
+#battle-report {
+	background-color: darkslategrey;
+}
